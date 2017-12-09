@@ -1,0 +1,120 @@
+/*Commom*/
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+}
+
+/* iCheck plugin Square skin, green
+----------------------------------- */
+.icheckbox_square-green,
+.iradio_square-green {
+    display: inline-block;
+    *display: inline;
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    background: url(green.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+
+.icheckbox_square-green {
+    background-position: 0 0;
+}
+.icheckbox_square-green.hover {
+    background-position: -24px 0;
+}
+.icheckbox_square-green.checked {
+    background-position: -48px 0;
+}
+.icheckbox_square-green.disabled {
+    background-position: -72px 0;
+    cursor: default;
+}
+.icheckbox_square-green.checked.disabled {
+    background-position: -96px 0;
+}
+
+.iradio_square-green {
+    background-position: -120px 0;
+}
+.iradio_square-green.hover {
+    background-position: -144px 0;
+}
+.iradio_square-green.checked {
+    background-position: -168px 0;
+}
+.iradio_square-green.disabled {
+    background-position: -192px 0;
+    cursor: default;
+}
+.iradio_square-green.checked.disabled {
+    background-position: -216px 0;
+}
+
+/* HiDPI support */
+@media (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+    .icheckbox_square-green,
+    .iradio_square-green {
+        background-image: url(green@2x.png);
+        -webkit-background-size: 240px 24px;
+        background-size: 240px 24px;
+    }
+}
+
+/*WIZARDS*/
+/**Altera o padrão*/
+/* .ibox-content{
+    background-color: #f3f3f4;
+    width: 550px;
+    display: table;
+    margin: 0 auto;
+
+} */
+
+.wizard > .content{
+    background-color: #f3f3f4;
+}
+
+.steps ul{
+    display: flex;
+    justify-content: center;
+}
+
+.wizard > .steps .current a, .wizard > .steps .current a:hover, .wizard > .steps .current a:active {
+    background-color: transparent;
+    color: #4c90d0;
+    border-bottom: 3px solid #4c90d0;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.wizard > .steps .disabled a, .wizard > .steps .disabled a:hover, .wizard > .steps .disabled a:active {
+    background-color: transparent;
+    color: #bfbdbd;
+    border-bottom: 3px solid #bfbdbd;
+    border-radius: 0;
+    font-weight: bold;
+}
+
+.navbar-default {
+    background-color: #2f4050 !important;
+    min-height: 100vh !important;
+    position: fixed !important;
+}
+
+.dropdown.profile-element {
+    text-align: center;
+}
+
+.dropdown.profile-element .img-circle{
+    background-color: white;
+}
+
+.footer-action {
+    display: table;
+    width: 100%;
+}

@@ -1,0 +1,41 @@
+  <div class="page">
+    <div fxLayout="column">
+      <div fxLayout="row" style="padding: 5px;">
+        <mat-card fxFlex class="cardCreateApi">
+          <mat-card-header>
+            <div mat-card-avatar>
+              <img class="photoPerfil" [src]="'/assets/img/profile.png'" alt="">
+            </div>
+            <div fxFlex fxLayout="row">
+              <div>
+                <input class="inputCreateApi" type="text" autocomplete="off" placeholder="Pesquise por cidade" required
+                 name="Api" [(ngModel)]="queryEndereco">
+              </div>
+              <span fxFlex></span>
+              <button mat-icon-button color="primary" (click)="getAddress(queryEndereco)">
+                <mat-icon class="iconApi" matTooltip="Comentar">send</mat-icon>
+              </button>
+            </div>
+          </mat-card-header>
+        </mat-card>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="space-between stretch">
+        <mat-list>
+          <h3 mat-subheader>Endrecos encontrados</h3>
+          <mat-list-item *ngFor="let endereco of enderecos">
+            <mat-icon mat-list-icon>endereco</mat-icon>
+            <h4 mat-line>{{endereco.name}}</h4>
+            <p mat-line> {{endereco.updated | date}} </p>
+          </mat-list-item>
+      </div>
+    </div>
+    <button mat-fab class="btnAdd" matTooltip="Cadastar novo evento" color="primary" (click)="createApi()">
+      <mat-icon>mode_edit</mat-icon>
+    </button>
+  </div>
+  
+  <!-- <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery> -->
+  
+  <!-- <section *ngIf="showSlider">
+    <ng-slideshow [options]="optionsSlider" [images]="imagesToSlider"></ng-slideshow>
+  </section> -->
