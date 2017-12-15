@@ -1,0 +1,20 @@
+<div>
+  <div fxLayout="row">
+    <mat-select name="categoria" placeholder="Favorite categoria" [(value)]="produto.categoria">
+      <mat-option *ngFor="let categoria of categorias" [value]="categoria">
+        {{ categoria.decricao }}
+      </mat-option>
+    </mat-select>
+
+    <mat-form-field class="example-full-width">
+      <input name="produto" matInput placeholder="Nome produto" [(ngModel)]="produto.nome">
+    </mat-form-field>
+    <button mat-button (click)="salvar(produto)" color="primary">Salvar</button>
+  </div>
+  <mat-list>
+    <h3 mat-subheader>Produtos</h3>
+    <mat-list-item *ngFor="let produto of produtos">
+      {{produto.nome}}
+    </mat-list-item>
+  </mat-list>
+</div>

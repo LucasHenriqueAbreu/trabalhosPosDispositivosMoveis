@@ -15,4 +15,13 @@ export class ConsultaApiService {
 		return this.httpClient.get<any>(`${this.apiUrl.url_api_google}${query}`);
 	}
 
+	getAdressByIp(): Observable<any> {
+		return this.httpClient.get<any>(this.apiUrl.url_api_google_ip);
+	}
+
+	getAdressByCep(cep: string): Observable<any> {
+		return this.httpClient.get<any>(`${this.apiUrl.url_viacep}${cep}/json/`)
+	}
+
+
 }

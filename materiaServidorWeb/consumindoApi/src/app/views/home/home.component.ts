@@ -8,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-	adressBySearch: any;
+	enderecos: any[];
+	enderecoByIp: any;
+	enderecoCep: any;
+	lat: number = 51.678418;
+	lng: number = 7.809007;
 
 	constructor(
 		private consultaApiService: ConsultaApiService,
@@ -16,11 +20,30 @@ export class HomeComponent implements OnInit {
 	) { }
 
 	ngOnInit() {
+		this.getAddressByIp();
 	}
 
 	getAddress(query: string) {
 		this.consultaApiService.getAdressByName(query).subscribe(res => {
-			this.adressBySearch = res;
+			this.enderecos = res.results;
+		}, err => {
+			this.openSnackBar('Não foi possível encontrar o endreco.', 'OK');
+		})
+	}
+
+	getAddressByIp() {
+		this.consultaApiService.getAdressByIp().subscribe(res => {
+			this.lat = parseFloat(res.lat);
+			this.lng = parseFloat(res.lon);
+			this.enderecoByIp = res;
+		}, err => {
+			this.openSnackBar('Não foi possível encontrar o endreco do ip.', 'OK');
+		})
+	}
+
+	getAddressByCep(cep: string) {
+		this.consultaApiService.getAdressByCep(cep).subscribe(res => {
+			this.enderecoCep = res;
 		}, err => {
 			this.openSnackBar('Não foi possível encontrar o endreco.', 'OK');
 		})

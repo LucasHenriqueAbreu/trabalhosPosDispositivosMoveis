@@ -1,3 +1,5 @@
+import { CategoriaService } from './services/categoria.service';
+import { ProdutoService } from './services/produto.service';
 import { HomeComponent } from './views/home/home.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
@@ -11,6 +13,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ROUTES } from './app.routing';
 import { AppComponent } from './app.component';
+import { AgmCoreModule } from '@agm/core';
+
 
 // App views
 import {
@@ -40,6 +44,8 @@ import localePt from '@angular/common/locales/pt';
 import 'hammerjs';
 import { ConsultaApiService } from './services/consulta-api.service';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
+import { CategoriaComponent } from './views/categoria/categoria.component';
+import { ProdutoComponent } from './views/produto/produto.component';
 
 registerLocaleData(localePt);
 
@@ -47,7 +53,9 @@ registerLocaleData(localePt);
     declarations: [
         AppComponent,
         HomeComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        CategoriaComponent,
+        ProdutoComponent
     ],
     imports: [
         // Angular modules
@@ -76,13 +84,17 @@ registerLocaleData(localePt);
         MatNativeDateModule,
         MatSnackBarModule,
         MatGridListModule,
-
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDwAJ3ffl_fqmhpvAwOH1oo-nTq_zMsG-0'
+        }),
         RouterModule.forRoot(ROUTES)
     ],
     providers: [
         { provide: LOCALE_ID, useValue: 'pt-BR' },
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        ConsultaApiService
+        ConsultaApiService,
+        ProdutoService,
+        CategoriaService
     ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
