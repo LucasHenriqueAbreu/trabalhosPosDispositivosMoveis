@@ -1,0 +1,14 @@
+Expressões de Álgebra Relacional a serem desenvolvidas:
+	- Obter as exposições que possuem visitas agendas para o dia 10/12/2017.
+(σ Exposição|x|Visita ^ (σVisita = 10/12/2017))
+ 
+	- Obter a lista de pessoas que agendaram as visitas no museu com idade inferior a 25 anos.
+(σ Usuário|x|Visita ^ σ( Usuário|x|Pessoa ^ (σPessoa < 25)))
+	- Obter a lista de visitas a exposição “Um exemplo de vida” com a instrutora “Maria de Souza” no mês de novembro de 2017.
+(σ Visita|x|Exposição ^ (σExposição = “Um exemplo de vida”) ^ (σ Visita|x|Guia ^ σ Guia = Maria de Souza ^ σ Visita = novembro de 2017))
+	- Obter as reservas com o tempo estimado de duração superior a 90 minutos
+(σ Visita|x|Reserva ^ sum() σ Duração ((σ Exposicao|x|Visita)) ) )
+	- Obter a lista de obras que receberam visita de grupos com mais de uma pessoa em visitas com duração inferior a 30 minutos.
+(σ Obra|x|Exposição ^ (σ Obra|x|Exposição ^ (σ Exposição|x|Visita ^ σVisita > 1  ) ^ σ Exposição < 30 )
+
+	
